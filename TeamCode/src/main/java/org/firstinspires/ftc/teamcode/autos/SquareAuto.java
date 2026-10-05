@@ -42,13 +42,15 @@ public class SquareAuto extends OpMode {
   }
 
   // Leg 3: back up 24" while turning left 90 degrees
+  // NOTE: linear() args swapped to work around reversed interpolation in this Pedro version
   private Path leg3() {
-    return line(pointB, pointC).linear(pointB, pointC);
+    return line(pointB, pointC).linear(pointC, pointB);
   }
 
   // Leg 4: return to start while turning back to 0 degrees
+  // NOTE: linear() args swapped (see leg3)
   private Path leg4() {
-    return line(pointC, start).linear(pointC, start);
+    return line(pointC, start).linear(start, pointC);
   }
 
   private Command autoRoutine() {
