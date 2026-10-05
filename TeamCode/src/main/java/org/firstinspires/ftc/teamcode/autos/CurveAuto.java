@@ -40,9 +40,9 @@ public class CurveAuto extends OpMode {
   }
 
   // Back: curve back to start while turning from 90 to 0 degrees
-  // NOTE: linear() args swapped to work around reversed interpolation in this Pedro version
+  // NOTE: no swap needed here. The reversed-heading bug only affects line(), not curve().
   private Path curveBack() {
-    return curve(pointB, controlBack, start).linear(start, pointB);
+    return curve(pointB, controlBack, start).linear(pointB, start);
   }
 
   private Command autoRoutine() {
