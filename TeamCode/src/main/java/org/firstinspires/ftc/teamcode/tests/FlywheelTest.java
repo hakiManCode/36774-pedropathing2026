@@ -20,6 +20,7 @@ public class FlywheelTest extends OpMode {
   @Override
   public void init() {
     flywheel = hardwareMap.get(DcMotorEx.class, FLYWHEEL_NAME);
+    flywheel.setDirection(DcMotor.Direction.REVERSE);
     flywheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     flywheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     flywheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
